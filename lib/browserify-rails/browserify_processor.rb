@@ -217,7 +217,7 @@ module BrowserifyRails
         else
           bfy_output = output_file.read
         end
-        sourcemap_output_file = "#{File.dirname(file)}/#{logical_path.split('/')[-1]}.map"
+        sourcemap_output_file = "#{File.dirname(output_file.path)}/#{logical_path.split('/')[-1]}.map"
         exorcist_command = "#{Shellwords.shellescape(exorcist_cmd)} #{Shellwords.shellescape(sourcemap_output_file)} #{exorcist_options}"
         Logger::log "Exorcist: #{exorcist_command}"
         exorcist_stdout, exorcist_stderr, exorcist_status = Open3.capture3(env,
